@@ -1,0 +1,7 @@
+data/
+outputs/
+*.csv
+*.mp4
+.venv/
+venv-mtah/
+__pycache__/
