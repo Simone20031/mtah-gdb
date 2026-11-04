@@ -38,3 +38,9 @@
 - Riferimento coerente col tracking: squadra del giocatore piu' vicino = riferimento nell'82.6% dei frame H/A (84.9% entro 5 m).
 - Scorer ufficiale su GT esterno: 319 possessioni, rumore spellF1 ~±0.07. Baseline: smooth50 0.426 > smooth125 0.289 > raw 0.098 (stesso ordine della gara).
 - Correzione: in questo tracking la palla e' assente nel 97% dei frame D (visibile 59% in totale), quindi l'assenza della palla rivela D. Non e' un banco di prova per il rilevamento di D; vale per la parte H/A e la struttura temporale. Per D servono feature dei soli giocatori.
+
+## 12. Diagnostica partita 2 (src/diag_game2.py)
+- Palla visibile: 80.9% nei frame vivi, 2.9% nei D. 98 buchi nel gioco vivo: mediana 0.2 s, ma p90 31 s e p99 68 s; i buchi lunghi sono quasi certamente D non riconosciuti dal riferimento (manca l'evento di ripartenza). Il riferimento ha quindi errori in entrambi i versi.
+- Velocita' mediana giocatori (lag 1 s, media su 3 s): vivi 1.64 m/s, D 0.93. AUC 0.83 (0.832 nel 1T, 0.818 nel 2T). Rapporto D/vivo ~0.57, simile al GT pubblico della gara (~0.56), che ha pero' solo 17 possessioni.
+- AUC = accordo con il mio riferimento da eventi, non con la verita'.
+- Prossimo: stesso procedimento sulla partita 1; stima su una partita, test sull'altra.
