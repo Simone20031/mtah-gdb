@@ -44,3 +44,7 @@
 - Velocita' mediana giocatori (lag 1 s, media su 3 s): vivi 1.64 m/s, D 0.93. AUC 0.83 (0.832 nel 1T, 0.818 nel 2T). Rapporto D/vivo ~0.57, simile al GT pubblico della gara (~0.56), che ha pero' solo 17 possessioni.
 - AUC = accordo con il mio riferimento da eventi, non con la verita'.
 - Prossimo: stesso procedimento sulla partita 1; stima su una partita, test sull'altra.
+
+## 13. Partita 1 (src/prep_game.py)
+- Controllo con il tracking: 81.2% (partita 2: 82.6%). Palla visibile nei D: 9.4% (partita 2: 2.9%) => il D del riferimento e' piu' rumoroso nella partita 1 (manca piu' spesso l'evento di ripartenza). Quota D 38%/28% (1T/2T), possessioni 9.4 s e 13.3 s di media.
+- Uso del riferimento: affidabile per la struttura H/A; per D solo come coerenza dei segnali, non come precisione.
