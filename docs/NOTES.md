@@ -33,3 +33,8 @@
 - Regole: il possesso passa alla squadra di un evento PASS/SHOT/SET PIECE/RECOVERY; BALL LOST lo assegna all'altra squadra; D da un evento di interruzione (BALL OUT, FAULT RECEIVED, CHALLENGE con FAULT, tiro in gol o fuori, fuorigioco, fallo di mano, fine tempo) al primo evento che riparte con la palla. Regole mie, non quelle del GT della gara.
 - Risultato: 1T 166 possessioni (media 12.8 s), D 21.8%; 2T 153 possessioni, D 32.9%. Coerente col GT pubblico (media 14.2 s, D 19.6%), ma D del 2T probabilmente sovrastimato dove manca l'evento di ripartenza.
 - Da fare: controllo indipendente con il tracking (squadra del giocatore piu' vicino alla palla nei frame H/A).
+
+## 11. Partita 2 come banco di prova (src/load_metrica_csv.py, src/check_game2.py)
+- Riferimento coerente col tracking: squadra del giocatore piu' vicino = riferimento nell'82.6% dei frame H/A (84.9% entro 5 m).
+- Scorer ufficiale su GT esterno: 319 possessioni, rumore spellF1 ~±0.07. Baseline: smooth50 0.426 > smooth125 0.289 > raw 0.098 (stesso ordine della gara).
+- Correzione: in questo tracking la palla e' assente nel 97% dei frame D (visibile 59% in totale), quindi l'assenza della palla rivela D. Non e' un banco di prova per il rilevamento di D; vale per la parte H/A e la struttura temporale. Per D servono feature dei soli giocatori.
