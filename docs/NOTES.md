@@ -24,3 +24,7 @@
 - macroF1 0.719, spellF1 0.439 (rumore ~±0.35: indistinguibile da smooth125), 14 possessioni vs 17, durata media 19.8 s vs 14.2 s, transF1 0.29.
 - D: precisione 0.98, recall 0.39. Debolezze: cambi di possesso persi, D di tipo non-rimessa.
 - Limite: 17 possessioni non permettono di confrontare versioni. Serve un'altra partita con riferimenti.
+
+## 9. Banco di prova esterno: metrica-sports/sample-data
+- 3 partite Metrica anonimizzate, tracking+eventi sincronizzati. Nessun file di licenza visibile; il README chiede uso responsabile e citazione della fonte. Da citare nel documento tecnico; dati in data/external (gitignored).
+- Limiti: tracking corretto (non automatico) e riferimento ricostruito da eventi con regole mie, diverse dal GT della gara.
