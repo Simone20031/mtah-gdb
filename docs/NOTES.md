@@ -28,3 +28,8 @@
 ## 9. Banco di prova esterno: metrica-sports/sample-data
 - 3 partite Metrica anonimizzate, tracking+eventi sincronizzati. Nessun file di licenza visibile; il README chiede uso responsabile e citazione della fonte. Da citare nel documento tecnico; dati in data/external (gitignored).
 - Limiti: tracking corretto (non automatico) e riferimento ricostruito da eventi con regole mie, diverse dal GT della gara.
+
+## 10. Riferimento di possesso da eventi (sample-data, partita 2; src/ref_events.py)
+- Regole: il possesso passa alla squadra di un evento PASS/SHOT/SET PIECE/RECOVERY; BALL LOST lo assegna all'altra squadra; D da un evento di interruzione (BALL OUT, FAULT RECEIVED, CHALLENGE con FAULT, tiro in gol o fuori, fuorigioco, fallo di mano, fine tempo) al primo evento che riparte con la palla. Regole mie, non quelle del GT della gara.
+- Risultato: 1T 166 possessioni (media 12.8 s), D 21.8%; 2T 153 possessioni, D 32.9%. Coerente col GT pubblico (media 14.2 s, D 19.6%), ma D del 2T probabilmente sovrastimato dove manca l'evento di ripartenza.
+- Da fare: controllo indipendente con il tracking (squadra del giocatore piu' vicino alla palla nei frame H/A).
