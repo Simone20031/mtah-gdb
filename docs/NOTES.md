@@ -15,3 +15,7 @@
 - Correzione alla nota 5: la finestra di 35 s diluiva il segnale. A blocchi di 5 s attorno a f0, i frame "fermi" sono ~38% a [-5,+5) s contro 14.8% di baseline, con i giocatori al minimo di velocita' (~1.0 m/s); dopo +5 s il gioco riparte (2.2 m/s). Vale in entrambi i tempi.
 - Il tag inizia a meta' dello stop (kickoff reale ~3.4 s dopo f0). Stima grezza del dead ball: da f0-7 s a f0+4 s.
 - I set piece coprono ~8% dei frame valutati; il resto dei D (falli, ecc.) va rilevato con le feature di movimento.
+
+## 7. Modello v1 (src/model_v1.py)
+- Evidenza per frame (squadra del giocatore piu' vicino alla palla; D da palla fuori campo, componente "ferma" GMM, prior set piece [-7,+4] s) + Viterbi con costi di cambio (HA 30, D 20).
+- Parametri scelti a giudizio, non tarati sul GT pubblico. Prima versione: serve per avere un CSV valido e un punto di confronto.
