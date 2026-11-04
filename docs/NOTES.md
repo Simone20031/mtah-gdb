@@ -10,3 +10,8 @@
 - Osservazione: nel 4.2% dei frame valutati con palla visibile le coordinate sono fuori da 0-1 (palla fuori campo). Da verificare se è un segnale utile per D.
 - Correzione: l'"anomalia" del kickoff 2T era un mio confronto sbagliato. Kickoff reale 2T = 113742 (tag 113660-113785, OK); 110808 e' solo l'inizio dell'intervallo valutato. Tempi Smart Tagging validati in entrambi i tempi.
 - Aperto: nel 2T ~2934 frame valutati precedono il kickoff reale; non so cosa contenga il GT li'.
+
+## 6. Profilo dei set piece (Smart Tagging + tracking, nessun GT)
+- Correzione alla nota 5: la finestra di 35 s diluiva il segnale. A blocchi di 5 s attorno a f0, i frame "fermi" sono ~38% a [-5,+5) s contro 14.8% di baseline, con i giocatori al minimo di velocita' (~1.0 m/s); dopo +5 s il gioco riparte (2.2 m/s). Vale in entrambi i tempi.
+- Il tag inizia a meta' dello stop (kickoff reale ~3.4 s dopo f0). Stima grezza del dead ball: da f0-7 s a f0+4 s.
+- I set piece coprono ~8% dei frame valutati; il resto dei D (falli, ecc.) va rilevato con le feature di movimento.
