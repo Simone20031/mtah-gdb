@@ -19,3 +19,8 @@
 ## 7. Modello v1 (src/model_v1.py)
 - Evidenza per frame (squadra del giocatore piu' vicino alla palla; D da palla fuori campo, componente "ferma" GMM, prior set piece [-7,+4] s) + Viterbi con costi di cambio (HA 30, D 20).
 - Parametri scelti a giudizio, non tarati sul GT pubblico. Prima versione: serve per avere un CSV valido e un punto di confronto.
+
+## 8. Risultato v1 sul GT pubblico (solo controllo, non tuning)
+- macroF1 0.719, spellF1 0.439 (rumore ~±0.35: indistinguibile da smooth125), 14 possessioni vs 17, durata media 19.8 s vs 14.2 s, transF1 0.29.
+- D: precisione 0.98, recall 0.39. Debolezze: cambi di possesso persi, D di tipo non-rimessa.
+- Limite: 17 possessioni non permettono di confrontare versioni. Serve un'altra partita con riferimenti.
