@@ -54,9 +54,3 @@
 - Soglia ~1.30 m/s scelta su una partita e applicata all'altra: balanced acc 0.79 / 0.76 (in casa 0.76 / 0.79).
 - Osservazione: nei 5 minuti pubblici la palla manca nell'11.8% dei frame (885/7500) contro il 40.7% sull'intera partita valutata: la finestra pubblica e' piu' facile del resto; il punteggio v1 sul pubblico e' ottimistico per H/A.
 - v2: HMM con transizioni conteggiate dai riferimenti, LLR della velocita' per D, penalita' sulla squadra non piu' vicina, perdita palla simulata con run length dell'ATD, evidenza tempered con alpha (scelto su altre partite). Train 1 -> test 2 e viceversa.
-
-## 14. Trasferibilita' della velocita' dei giocatori e modello v2 (src/diag_cross.py, src/model_v2.py)
-- Percentili della velocita' mediana (5/25/50/75/95): partita 1 [0.46 0.99 1.40 2.08 3.48], partita 2 [0.44 1.02 1.39 2.05 3.31], ATD gara [0.35 0.96 1.36 2.00 3.48]. Distribuzioni coincidenti. AUC 0.868 / 0.830.
-- Soglia ~1.30 m/s scelta su una partita e applicata all'altra: balanced acc 0.79 / 0.76 (in casa 0.76 / 0.79).
-- Osservazione: nei 5 minuti pubblici la palla manca nell'11.8% dei frame (885/7500) contro il 40.7% sull'intera partita valutata: la finestra pubblica e' piu' facile del resto; il punteggio v1 sul pubblico e' ottimistico per H/A.
-- v2: HMM con transizioni conteggiate dai riferimenti, LLR della velocita' per D, penalita' sulla squadra non piu' vicina, perdita palla simulata con run length dell'ATD, evidenza tempered con alpha (scelto su altre partite). Train 1 -> test 2 e viceversa.
