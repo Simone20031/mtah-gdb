@@ -10,7 +10,7 @@ Match data assets are licensed for this competition and are **not included** in 
 ## Requirements & Environment
 
 - **OS**: Linux / WSL2 (Ubuntu 22.04+ recommended)
-- **Python**: 3.9+ (tested with Python 3.14)
+- **Python**: 3.9+ (tested with Python 3.13 and 3.14)
 - **Dependencies**: Listed in `requirements.txt`
 
 ### Setup
@@ -56,10 +56,13 @@ This automated script:
 2. Generates empirical reference ground truths for Games 1 and 2 from synchronized event data (`src/ref_events.py`).
 3. Preprocesses and verifies tracking and team arrays (`src/prep_game.py`).
 4. Fits the HMM transition dynamics and emission distributions and performs Viterbi decoding on the match tracking (`src/make_submission.py --out outputs/gdb.csv`).
-5. Validates the submission with `validate_submission.py` (verifying 199,319 rows, strict ordering, and label validity).
+5. Validates the submission with the official `validate_submission.py` (199,319 rows, frame order, labels).
+   Set `MTAH_VALIDATOR` to its path if the challenge repository is not next to this one.
 
-The generated file `outputs/gdb.csv` has MD5 checksum:
-`6d64a1731eb5c6651ff62629bea2c7f6`
+The pipeline is deterministic. Expected MD5 of `outputs/gdb.csv`: `TODO` (regenerate after any code change).
+
+Options of `src/make_submission.py`: `--no-extras` (no ball-out / set-piece dead-ball signals),
+`--no-kickoff` (no start-of-half rule).
 
 ---
 
@@ -69,7 +72,8 @@ The generated file `outputs/gdb.csv` has MD5 checksum:
 mtah-gdb/
 ├── docs/
 │   ├── gdb.md               # Technical report (Deliverable 3)
-│   ├── gdb.pdf              # PDF compiled version of technical report
+│   ├── gdb.pdf              # PDF of the technical report (the file uploaded to the form)
+│   ├── build_pdf.sh         # gdb.md -> gdb.pdf (pandoc + Chrome)
 │   └── NOTES.md             # Experimental logs and design journal
 ├── outputs/                 # Generated submissions (gitignored)
 │   └── gdb.csv              # Official submission file (Deliverable 1)
@@ -92,4 +96,4 @@ mtah-gdb/
 
 1. **Submission File**: `outputs/gdb.csv` (199,319 frames, verified with `validate_submission.py`).
 2. **Repository**: Self-contained with single-command reproduction via `run_all.sh`.
-3. **Technical Document**: `docs/gdb.md` / `docs/gdb.pdf`.
+3. **Technical Document**: `docs/gdb.pdf` (source: `docs/gdb.md`).

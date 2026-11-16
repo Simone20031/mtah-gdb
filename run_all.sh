@@ -30,8 +30,14 @@ mkdir -p outputs
 python src/make_submission.py --out outputs/gdb.csv
 
 echo "=== [5/5] Validation ==="
-VALIDATOR="${MTAH_VALIDATOR:-../more-than-a-hack-2027/evaluation/validate_submission.py}"
-if [ -f "$VALIDATOR" ]; then
+VALIDATOR="${MTAH_VALIDATOR:-}"
+if [ -z "$VALIDATOR" ]; then
+    for c in ../more-than-a-hack-2027/evaluation/validate_submission.py \
+             ../more-than-a-hack-2027-main/evaluation/validate_submission.py; do
+        if [ -f "$c" ]; then VALIDATOR="$c"; break; fi
+    done
+fi
+if [ -n "$VALIDATOR" ] && [ -f "$VALIDATOR" ]; then
     echo "Running official submission validator..."
     python "$VALIDATOR" outputs/gdb.csv
 elif [ -f "evaluation/validate_submission.py" ]; then
