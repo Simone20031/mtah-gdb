@@ -181,7 +181,7 @@ if __name__ == "__main__":
     out.mkdir(parents=True, exist_ok=True)
     segs = segments(test)
     e1 = emissions(ball_d, players, team, par)
-    for k in (75, 25, 10, 5):
+    for k in (10, 7, 5, 4, 3, 2, 1):
         lab = decode(e1 / k, segs, par["logT"])
         write(out / f"v2_alpha_1su{k}.csv", lab)
         print(f"  alpha=1/{k}: D {np.mean(lab == 'D'):.1%}")

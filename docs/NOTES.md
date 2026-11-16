@@ -60,3 +60,15 @@
 - alpha=1/5: spellF1 0.368 vs baseline smooth50 0.325 (test 2) e 0.362 vs 0.314 (test 1). Differenze ~+0.045, circa meta' del rumore (~0.09-0.10): direzione coerente, non significativa.
 - alpha piccolo => possessioni troppo lunghe (115-139 s a 1/75), troppo poche (203/216 vs 319/341 reali a 1/5). L'ottimo e' sul bordo della griglia: estesa a 1/7..1/1.
 - alpha e' l'unico parametro scelto guardando le partite di test: da dichiarare nel documento tecnico.
+
+## 16. Modello finale (gdb_B) e validazione submission (src/make_submission.py, run_all.sh)
+- Parametri HMM stimati congiuntamente da Metrica Games 1 e 2, alpha=1/5 (scelto sul cross-validation esterno).
+- Extra aggiunti su base geometrica e di regolamento (indipendenti dal GT pubblico):
+  - Palla fuori campo (coordinate <0 o >1): forte evidenza di palla morta (peso raw 6.0).
+  - Prior set piece dallo Smart Tagging: intervallo [-7 s, +4 s] attorno al tag, coerente con il profilo medio di decrescita della velocità dei giocatori misurato sull'intera partita (peso 1.0).
+- Sanity check su GT pubblico (5 minuti):
+  - gdb_B: macroF1 0.8252 (H 0.823, A 0.857, D 0.795), spellF1 0.4000 (IoU 0.5 F1 0.5000), 19 possessioni predette (GT = 17, durata media 12.6 s vs 14.2 s reali), transF1 0.2791, latency +1.8 frames, share error 0.0075 (0.75%), frammentazione 1.14 (24 segmenti vs 21 GT), alive/dead F1 0.9494.
+  - Recall classe D: 80.5% (baseline smooth50 era 21.4%). Precisione classe D: 78.6%.
+  - gdb_A (senza extra): macroF1 0.7894, spellF1 0.3889.
+- Decisione: gdb_B selezionato come submission finale ufficiale (`outputs/gdb.csv`).
+- Riproducibilità: `run_all.sh` automatizza l'intera catena (clone sample-data al commit fissato `e706dd506b360d69d9d123d5b8026e7294b13996`, estrazione riferimenti, preprocessing, fitting HMM, decodifica Viterbi e validazione). Determinismo verificato: MD5 `6d64a1731eb5c6651ff62629bea2c7f6`.
