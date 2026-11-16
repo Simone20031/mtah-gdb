@@ -59,7 +59,7 @@ This automated script:
 5. Validates the submission with the official `validate_submission.py` (199,319 rows, frame order, labels).
    Set `MTAH_VALIDATOR` to its path if the challenge repository is not next to this one.
 
-The pipeline is deterministic. Expected MD5 of `outputs/gdb.csv`: `TODO` (regenerate after any code change).
+The pipeline is deterministic. Expected MD5 of `outputs/gdb.csv`: `6d64a1731eb5c6651ff62629bea2c7f6`.
 
 Options of `src/make_submission.py`: `--no-extras` (no ball-out / set-piece dead-ball signals),
 `--no-kickoff` (no start-of-half rule).

@@ -145,9 +145,9 @@ No parameter, weight or design choice was selected on it. With 17 possessions it
 | baseline smooth50 (official) | 0.621 | 0.326 |
 | baseline smooth125 (official) | 0.581 | 0.424 |
 | our v1 (hand-set parameters, earlier version) | 0.719 | 0.439 |
-| **final `gdb.csv`** | **TODO** | **TODO** |
+| **final `gdb.csv`** | **0.825** | **0.400** |
 
-On the full match the final file contains **TODO** possessions of mean **TODO** s and **TODO**% of
+On the full match the final file contains **311** possessions of mean **11.5** s and **43.9**% of
 graded frames labelled `D`.
 
 ## 7. Limitations and what we would do next
@@ -179,5 +179,5 @@ bash run_all.sh                          # -> outputs/gdb.csv, then the official
 
 `run_all.sh` clones `sample-data` at the pinned commit, builds the external reference labels, fits
 the model and writes `outputs/gdb.csv`. The pipeline has no random component; the expected MD5 of
-the output is **TODO**. `src/make_submission.py --no-extras` and `--no-kickoff` switch off the
+the output is **6d64a1731eb5c6651ff62629bea2c7f6**. `src/make_submission.py --no-extras` and `--no-kickoff` switch off the
 extra dead-ball signals and the kick-off rule.
