@@ -54,3 +54,9 @@
 - Soglia ~1.30 m/s scelta su una partita e applicata all'altra: balanced acc 0.79 / 0.76 (in casa 0.76 / 0.79).
 - Osservazione: nei 5 minuti pubblici la palla manca nell'11.8% dei frame (885/7500) contro il 40.7% sull'intera partita valutata: la finestra pubblica e' piu' facile del resto; il punteggio v1 sul pubblico e' ottimistico per H/A.
 - v2: HMM con transizioni conteggiate dai riferimenti, LLR della velocita' per D, penalita' sulla squadra non piu' vicina, perdita palla simulata con run length dell'ATD, evidenza tempered con alpha (scelto su altre partite). Train 1 -> test 2 e viceversa.
+
+## 15. Risultati v2 con palla degradata (partite Metrica 1 e 2, train su una / test sull'altra)
+- Palla visibile nei frame vivi: 54-57% (maschera a tratti con run length dell'ATD della gara).
+- alpha=1/5: spellF1 0.368 vs baseline smooth50 0.325 (test 2) e 0.362 vs 0.314 (test 1). Differenze ~+0.045, circa meta' del rumore (~0.09-0.10): direzione coerente, non significativa.
+- alpha piccolo => possessioni troppo lunghe (115-139 s a 1/75), troppo poche (203/216 vs 319/341 reali a 1/5). L'ottimo e' sul bordo della griglia: estesa a 1/7..1/1.
+- alpha e' l'unico parametro scelto guardando le partite di test: da dichiarare nel documento tecnico.
